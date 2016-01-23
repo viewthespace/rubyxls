@@ -1,8 +1,7 @@
 # Rubyxml
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubyxml`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Generate XML files using ruby. Rubyxml provides a simple DSL to express anything from simple ruby strings to complex Active Record models.
+Support for multi-sheet workbooks, chart generation, and formula based cells included.
 
 ## Installation
 
