@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Reporting::Excel2::StyleManagers::DefaultStyleManager do
-  let(:default_style_manager) { Reporting::Excel2::StyleManagers::DefaultStyleManager.new }
+describe Rubyxml::Components::StyleManager do
+  let(:default_style_manager) { Rubyxml::Components::StyleManager.new }
 
   describe '#retrieve_style_attributes' do
 
@@ -11,7 +11,7 @@ describe Reporting::Excel2::StyleManagers::DefaultStyleManager do
 
       it 'retrieves the correct attributes' do
         expect(subject).to eq(
-                              { 
+                              {
                                 alignment: { horizontal: :left, wrap_text: false, vertical: :bottom },
                                 b: true,
                                 font_name: "Arial",
@@ -67,5 +67,5 @@ describe Reporting::Excel2::StyleManagers::DefaultStyleManager do
     end
 
   end
-  
+
 end

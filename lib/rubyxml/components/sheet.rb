@@ -1,4 +1,4 @@
-class Reporting::Excel2::Sheets::DefaultSheet
+class Rubyxml::Components::Sheet
 
   PAGE_SETUP = { fit_to_width: 1, orientation: :landscape }
   PRINT_OPTIONS = { grid_lines: false }

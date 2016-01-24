@@ -1,4 +1,4 @@
-class Reporting::Excel2::Workbooks::DefaultWorkbook < SimpleDelegator
+class Rubyxml::Components::Workbook < SimpleDelegator
 
   attr_reader :sheets
 

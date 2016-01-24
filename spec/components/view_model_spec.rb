@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Reporting::Excel2::ViewModels::DefaultViewModel do
-  let(:default_view_model) { Reporting::Excel2::ViewModels::DefaultViewModel.new }
+describe Rubyxml::Components::ViewModel do
+  let(:default_view_model) { Rubyxml::Components::ViewModel.new }
 
   describe '#rows' do
 

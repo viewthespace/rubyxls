@@ -1,11 +1,7 @@
 require 'spec_helper'
 
 describe Rubyxml do
-  it 'has a version number' do
-    expect(Rubyxml::VERSION).not_to be nil
-  end
-
-  it 'does something useful' do
-    expect(false).to eq(true)
+  it 'has correct version number' do
+    expect(Rubyxml::VERSION).not_to eq("0.1.0")
   end
 end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Reporting::Excel2::Workbooks::DefaultWorkbook do
-  let(:workbook) { Reporting::Excel2::Workbooks::DefaultWorkbook.new }
+describe Rubyxml::Components::Workbook do
+  let(:workbook) { Rubyxml::Components::Workbook.new }
 
   describe '#to_stream' do
 
@@ -32,5 +32,5 @@ describe Reporting::Excel2::Workbooks::DefaultWorkbook do
     end
 
   end
-  
+
 end

@@ -1,4 +1,4 @@
-class Reporting::Excel2::Builders::ChartBuilder
+class Rubyxml::Builders::ChartBuilder
 
   attr_reader :type
   attr_reader :start_at

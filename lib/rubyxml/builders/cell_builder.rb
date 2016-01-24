@@ -1,4 +1,4 @@
-class Reporting::Excel2::Builders::CellBuilder
+class Rubyxml::Builders::CellBuilder
 
   attr_reader :cells
 

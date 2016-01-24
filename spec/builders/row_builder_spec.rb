@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Reporting::Excel2::Builders::RowBuilder do
+describe Rubyxml::Builders::RowBuilder do
   let(:single_column_letter_cells) {
                                       [
                                         { value: "cell1", row: 2, column: "B" }, { value: "cell2", row: 2, column: "C" },
@@ -18,13 +18,13 @@ describe Reporting::Excel2::Builders::RowBuilder do
                                       { value: "cell7", row: 5, column: "AC" }, { value: "cell8", row: 5, column: "AD" },
                                       { value: "cell9", row: 6, column: "AC" }, { value: "cell10", row: 6, column: "AD" }
                                     ]
-                                  }                                           
+                                  }
 
   describe '#rows' do
 
     context 'single column letter cells' do
 
-      subject { Reporting::Excel2::Builders::RowBuilder.new(single_column_letter_cells).rows }
+      subject { Rubyxml::Builders::RowBuilder.new(single_column_letter_cells).rows }
 
       it 'maps each cell in specified column and row' do
         expect(subject).to eq(
@@ -43,7 +43,7 @@ describe Reporting::Excel2::Builders::RowBuilder do
 
     context 'multi column letter cells' do
 
-      subject { Reporting::Excel2::Builders::RowBuilder.new(multi_column_letter_cells).rows }
+      subject { Rubyxml::Builders::RowBuilder.new(multi_column_letter_cells).rows }
 
       it 'maps each cell in specified column and row' do
         expect(subject).to eq(

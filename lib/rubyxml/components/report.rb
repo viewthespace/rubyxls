@@ -1,4 +1,4 @@
-class Reporting::Excel2::Reports::DefaultReport
+class Rubyxml::Components::Report
 
   attr_reader :workbooks
   

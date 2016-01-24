@@ -1,4 +1,4 @@
-class Reporting::Excel2::ViewModels::DefaultViewModel
+class Rubyxml::Components::ViewModel
 
   attr_reader :data_rows
 

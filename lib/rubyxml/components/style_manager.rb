@@ -1,4 +1,4 @@
-class Reporting::Excel2::StyleManagers::DefaultStyleManager
+class Rubyxml::Components::StyleManager
 
   def initialize(opts={})
     @styles = {}

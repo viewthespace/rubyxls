@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Reporting::Excel2::Sheets::DefaultSheet do
-  let(:default_sheet) { Reporting::Excel2::Sheets::DefaultSheet.new }
+describe Rubyxml::Components::Sheet do
+  let(:default_sheet) { Rubyxml::Components::Sheet.new }
 
   describe '#build_options' do
 
@@ -12,7 +12,7 @@ describe Reporting::Excel2::Sheets::DefaultSheet do
                               page_setup: { fit_to_width: 1, orientation: :landscape },
                               print_options: { grid_lines: false },
                               page_margins: { top: 0.3, left: 0.3, bottom: 0.3, right: 0.3, header: 0, footer: 0 },
-                              name: "Default Sheet"
+                              name: " Sheet"
                             })
     end
 
