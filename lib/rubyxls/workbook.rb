@@ -22,7 +22,7 @@ module Rubyxls
     end
 
     def filename
-      "#{@name.parameterize}.xlsx"
+      "#{@name}.xlsx"
     end
 
     private
