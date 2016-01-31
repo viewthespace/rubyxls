@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Rubyxls::Components::ViewModel do
-  let(:default_view_model) { Rubyxls::Components::ViewModel.new }
+describe Rubyxls::ViewModel do
+  let(:default_view_model) { Rubyxls::ViewModel.new }
 
   describe '#rows' do
 
