@@ -1,4 +1,4 @@
-class Rubyxml::Builders::ChartBuilder
+class Rubyxls::Builders::ChartBuilder
 
   attr_reader :type
   attr_reader :start_at

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Rubyxml::Builders::FormulaBuilder do
+describe Rubyxls::Builders::FormulaBuilder do
 
   describe '#cells' do
 
@@ -8,7 +8,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'no locked rows and no locked columns' do
 
-        subject { Rubyxml::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :right, num_cells: 4).cells }
+        subject { Rubyxls::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :right, num_cells: 4).cells }
 
         it 'has the correct cells' do
           expect(subject).to eq([{ value: "=B1+B2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=C1+C2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=D1+D2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=E1+E2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }])
@@ -18,7 +18,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'locked rows' do
 
-        subject { Rubyxml::Builders::FormulaBuilder.new( value: "=B$1+B$2", style: [:bold], width: 10, height: 10, fill: :right, num_cells: 4).cells }
+        subject { Rubyxls::Builders::FormulaBuilder.new( value: "=B$1+B$2", style: [:bold], width: 10, height: 10, fill: :right, num_cells: 4).cells }
 
         it 'has the correct cells' do
           expect(subject).to eq([{ value: "=B$1+B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=C$1+C$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=D$1+D$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=E$1+E$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }])
@@ -28,7 +28,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'locked columns' do
 
-        subject { Rubyxml::Builders::FormulaBuilder.new( value: "=$B1+$B2", style: [:bold], width: 10, height: 10, fill: :right, num_cells: 4).cells }
+        subject { Rubyxls::Builders::FormulaBuilder.new( value: "=$B1+$B2", style: [:bold], width: 10, height: 10, fill: :right, num_cells: 4).cells }
 
         it 'has the correct cells' do
           expect(subject).to eq([{ value: "=$B1+$B2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=$B1+$B2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=$B1+$B2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=$B1+$B2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }])
@@ -38,7 +38,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'locked rows and locked columns' do
 
-        subject { Rubyxml::Builders::FormulaBuilder.new( value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, fill: :right, num_cells: 4).cells }
+        subject { Rubyxls::Builders::FormulaBuilder.new( value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, fill: :right, num_cells: 4).cells }
 
         it 'has the correct cells' do
           expect(subject).to eq([{ value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }, { value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }])
@@ -48,7 +48,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'num_cells is nil' do
 
-        subject { Rubyxml::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :right).cells }
+        subject { Rubyxls::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :right).cells }
 
         it 'raises an error' do
           expect { subject }.to raise_error("Num cells cannot be nil when filling right for formula: =B1+B2!")
@@ -62,7 +62,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'no locked rows and no locked columns' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :down, row_index: n).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :down, row_index: n).cells } }
 
         it 'has the correct cells' do
           expect(subject).to eq([[{ value: "=B1+B2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=B2+B3", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=B3+B4", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=B4+B5", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }]])
@@ -72,7 +72,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'locked rows' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=B$1+B$2", style: [:bold], width: 10, height: 10, fill: :down, row_index: n).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=B$1+B$2", style: [:bold], width: 10, height: 10, fill: :down, row_index: n).cells } }
 
         it 'has the correct cells' do
           expect(subject).to eq([[{ value: "=B$1+B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=B$1+B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=B$1+B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=B$1+B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }]])
@@ -82,7 +82,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'locked columns' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=$B1+$B2", style: [:bold], width: 10, height: 10, fill: :down, row_index: n).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=$B1+$B2", style: [:bold], width: 10, height: 10, fill: :down, row_index: n).cells } }
 
         it 'has the correct cells' do
           expect(subject).to eq([[{ value: "=$B1+$B2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=$B2+$B3", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=$B3+$B4", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=$B4+$B5", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }]])
@@ -92,7 +92,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'locked rows and locked columns' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, fill: :down, row_index: n).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, fill: :down, row_index: n).cells } }
 
         it 'has the correct cells' do
           expect(subject).to eq([[{ value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }], [{ value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, data_validation: nil, merge: nil }]])
@@ -102,7 +102,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'row_index is nil' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :down).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :down).cells } }
 
         it 'raises an error' do
           expect { subject }.to raise_error("Row index cannot be nil when filling down for formula: =B1+B2!")
@@ -116,7 +116,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'no locked rows and no locked columns' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :all, num_cells: 4, row_index: n).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :all, num_cells: 4, row_index: n).cells } }
 
         it 'has the correct cells' do
           expect(subject).to eq([
@@ -131,7 +131,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'locked rows' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=B$1+B$2", style: [:bold], width: 10, height: 10, fill: :all, num_cells: 4, row_index: n).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=B$1+B$2", style: [:bold], width: 10, height: 10, fill: :all, num_cells: 4, row_index: n).cells } }
 
         it 'has the correct cells' do
           expect(subject).to eq([
@@ -146,7 +146,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'locked columns' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=$B1+$B2", style: [:bold], width: 10, height: 10, fill: :all, num_cells: 4, row_index: n).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=$B1+$B2", style: [:bold], width: 10, height: 10, fill: :all, num_cells: 4, row_index: n).cells } }
 
         it 'has the correct cells' do
           expect(subject).to eq([
@@ -161,7 +161,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'locked rows and locked columns' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, fill: :all, num_cells: 4, row_index: 0).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=$B$1+$B$2", style: [:bold], width: 10, height: 10, fill: :all, num_cells: 4, row_index: 0).cells } }
 
         it 'has the correct cells' do
           expect(subject).to eq([
@@ -176,7 +176,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'num_cells is nil' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :all, row_index: n).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :all, row_index: n).cells } }
 
         it 'raises an error' do
           expect { subject }.to raise_error("Both num cells & row index cannot be nil when filling all for formula: =B1+B2!")
@@ -186,7 +186,7 @@ describe Rubyxml::Builders::FormulaBuilder do
 
       context 'row_index is nil' do
 
-        subject { 4.times.map { |n| Rubyxml::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :all, num_cells: n).cells } }
+        subject { 4.times.map { |n| Rubyxls::Builders::FormulaBuilder.new( value: "=B1+B2", style: [:bold], width: 10, height: 10, fill: :all, num_cells: n).cells } }
 
         it 'raises an error' do
           expect { subject }.to raise_error("Both num cells & row index cannot be nil when filling all for formula: =B1+B2!")

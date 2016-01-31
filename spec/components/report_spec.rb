@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Rubyxml::Components::Report do
-  let(:default_report) { Rubyxml::Components::Report.new }
+describe Rubyxls::Components::Report do
+  let(:default_report) { Rubyxls::Components::Report.new }
 
   describe '#download!' do
 

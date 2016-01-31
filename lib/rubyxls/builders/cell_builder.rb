@@ -1,4 +1,4 @@
-class Rubyxml::Builders::CellBuilder
+class Rubyxls::Builders::CellBuilder
 
   attr_reader :cells
 

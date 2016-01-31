@@ -1,4 +1,4 @@
-class Rubyxml::Components::Report
+class Rubyxls::Components::Report
 
   attr_reader :workbooks
   
@@ -29,7 +29,7 @@ class Rubyxml::Components::Report
 
   def content_type
     if file_extension == :xlsx
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+      'application/vnd.openxlsformats-officedocument.spreadsheetml.sheet'
     elsif file_extension == :zip
       'application/zip'
     end

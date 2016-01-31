@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Rubyxml::Builders::ChartBuilder do
-  let(:chart_builder) { Rubyxml::Builders::ChartBuilder.new }
+describe Rubyxls::Builders::ChartBuilder do
+  let(:chart_builder) { Rubyxls::Builders::ChartBuilder.new }
 
   describe '#type' do
 

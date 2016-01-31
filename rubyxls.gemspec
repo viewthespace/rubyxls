@@ -1,19 +1,19 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rubyxml/version'
+require 'rubyxls/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rubyxml"
-  spec.version       = Rubyxml::VERSION
+  spec.name          = "rubyxls"
+  spec.version       = Rubyxls::VERSION
   spec.authors       = ["Alexander Frankel"]
   spec.email         = ["alexxander.frankel@gmail.com"]
 
-  spec.summary       = %q{A simple DSL for generating XML files in plain-old ruby.}
-  spec.description   = %q{Generate XML files using ruby. Rubyxml provides a simple DSL to
+  spec.summary       = %q{A simple DSL for generating XLS files in plain-old ruby.}
+  spec.description   = %q{Generate XLS files using ruby. Rubyxls provides a simple DSL to
                           express anything from simple ruby strings to complex Active Record models.
                           Support for multi-sheet workbooks, chart generation, and formula based cells included.}
-  spec.homepage      = "https://github.com/alexanderfrankel/rubyxml"
+  spec.homepage      = "https://github.com/alexanderfrankel/rubyxls"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

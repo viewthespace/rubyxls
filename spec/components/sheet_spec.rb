@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Rubyxml::Components::Sheet do
-  let(:default_sheet) { Rubyxml::Components::Sheet.new }
+describe Rubyxls::Components::Sheet do
+  let(:default_sheet) { Rubyxls::Components::Sheet.new }
 
   describe '#build_options' do
 

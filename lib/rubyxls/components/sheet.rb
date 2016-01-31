@@ -1,4 +1,4 @@
-class Rubyxml::Components::Sheet
+class Rubyxls::Components::Sheet
 
   PAGE_SETUP = { fit_to_width: 1, orientation: :landscape }
   PRINT_OPTIONS = { grid_lines: false }

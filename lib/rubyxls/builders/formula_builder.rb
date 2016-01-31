@@ -1,4 +1,4 @@
-class Rubyxml::Builders::FormulaBuilder
+class Rubyxls::Builders::FormulaBuilder
 
   attr_reader :cells
 

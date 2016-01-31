@@ -1,6 +1,6 @@
-# Rubyxml
+# Rubyxls
 
-Generate XML files using ruby. Rubyxml provides a simple DSL to express anything from simple ruby strings to complex Active Record models.
+Generate XLS files using ruby. Rubyxls provides a simple DSL to express anything from simple ruby strings to complex Active Record models.
 Support for multi-sheet workbooks, chart generation, and formula based cells included.
 
 ## Installation
@@ -8,7 +8,7 @@ Support for multi-sheet workbooks, chart generation, and formula based cells inc
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rubyxml'
+gem 'rubyxls'
 ```
 
 And then execute:
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rubyxml
+    $ gem install rubyxls
 
 ## Usage
 
@@ -31,7 +31,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rubyxml. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rubyxls. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

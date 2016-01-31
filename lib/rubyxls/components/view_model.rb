@@ -1,4 +1,4 @@
-class Rubyxml::Components::ViewModel
+class Rubyxls::Components::ViewModel
 
   attr_reader :data_rows
 

@@ -1,4 +1,4 @@
-class Rubyxml::Components::Workbook < SimpleDelegator
+class Rubyxls::Components::Workbook < SimpleDelegator
 
   attr_reader :sheets
 

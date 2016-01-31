@@ -1,4 +1,4 @@
-class Rubyxml::Components::StyleManager
+class Rubyxls::Components::StyleManager
 
   def initialize(opts={})
     @styles = {}
