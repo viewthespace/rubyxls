@@ -11,7 +11,7 @@ module Rubyxls
       styles = [] if styles.nil?
       styles.each_with_object(@styles[:default].clone) do |style, combined_styles_hash|
         raise("The style :#{style} has not been defined! Please define or create a new type of Style in the styles directory!") if @styles[style].nil?
-        combined_styles_hash.deep_merge!(@styles[style])
+        combined_styles_hash.merge!(@styles[style])
       end
     end
 
