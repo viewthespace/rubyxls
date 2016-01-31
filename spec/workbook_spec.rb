@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Rubyxls::Components::Workbook do
-  let(:workbook) { Rubyxls::Components::Workbook.new }
+describe Rubyxls::Workbook do
+  let(:workbook) { Rubyxls::Workbook.new }
 
   describe '#to_stream' do
 

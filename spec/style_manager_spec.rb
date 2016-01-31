@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Rubyxls::Components::StyleManager do
-  let(:default_style_manager) { Rubyxls::Components::StyleManager.new }
+describe Rubyxls::StyleManager do
+  let(:default_style_manager) { Rubyxls::StyleManager.new }
 
   describe '#retrieve_style_attributes' do
 
