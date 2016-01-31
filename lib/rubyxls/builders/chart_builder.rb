@@ -1,3 +1,5 @@
+require 'axlsx'
+
 module Rubyxls
   module Builders
     class ChartBuilder

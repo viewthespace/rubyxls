@@ -7,7 +7,7 @@ module Rubyxls
 
     def initialize(**opts)
       @sheet_name = opts.fetch(:sheet_name, "Default Sheet")
-      @style_manager = opts.fetch(:style_manager, Reporting::Excel2::StyleManagers::DefaultStyleManager.new)
+      @style_manager = opts.fetch(:style_manager, Rubyxls::StyleManager.new)
     end
 
     def build_options
@@ -15,7 +15,7 @@ module Rubyxls
     end
 
     def build_rows
-      Reporting::Excel2::Builders::RowBuilder.new(build_cells).rows.each do |row|
+      Rubyxls::Builders::RowBuilder.new(build_cells).rows.each do |row|
         row.each do |cell|
           cell[:style] = @style_manager.retrieve_style_attributes(cell[:style])
         end
@@ -33,7 +33,7 @@ module Rubyxls
     private
 
     def build_cells
-      Reporting::Excel2::Builders::CellBuilder.new(model_data_rows: Reporting::Excel2::ViewModels::DefaultViewModel.new(title_row: true, header_row: true, additional_rows: 1, total_row: true).data_rows, start_row: 2, start_column: "B").cells
+      Rubyxls::Builders::CellBuilder.new(model_data_rows: Rubyxls::ViewModel.new(title_row: true, header_row: true, additional_rows: 1, total_row: true).data_rows, start_row: 2, start_column: "B").cells
     end
 
   end

@@ -3,7 +3,6 @@ module Rubyxls
 
     def initialize(opts={})
       @styles = {}
-      @currency_symbol = opts.fetch(:currency_symbol, ActivityLog.new.currency_symbol)
       initialize_default_style!
       initialize_base_styles!
     end
@@ -47,9 +46,9 @@ module Rubyxls
       define_style(style: :number, attributes: { format_code: '#,##0_ ;(#,##0)' })
       define_style(style: :decimal, attributes: { format_code: '#,##0.00_ ;(#,##0.00)' })
       define_style(style: :date, attributes: { format_code: 'MM/D/YY' })
-      define_style(style: :time, attributes: { format_code: "[#{@currency_symbol}-409]h:mm AM/PM;@" })
-      define_style(style: :currency, attributes: { format_code: "#{@currency_symbol}#,##0;(#{@currency_symbol}#,##0)" })
-      define_style(style: :currency_precision, attributes: { format_code: "#{@currency_symbol}#,##0.00;(#{@currency_symbol}#,##0.00)" })
+      define_style(style: :time, attributes: { format_code: '[$-409]h:mm AM/PM;@' })
+      define_style(style: :currency, attributes: { format_code: '$#,##0;($#,##0)' })
+      define_style(style: :currency_precision, attributes: { format_code: '$#,##0.00;($#,##0.00)' })
       define_style(style: :percent, attributes: { format_code: '0.00%;(0.00%)' })
 
       define_style(style: :wrap_text, attributes: { alignment: { wrap_text: true } })

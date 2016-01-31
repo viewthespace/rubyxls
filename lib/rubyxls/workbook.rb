@@ -28,7 +28,7 @@ module Rubyxls
     private
 
     def build_sheets!
-      @sheets << Reporting::Excel2::Sheets::DefaultSheet.new
+      @sheets << Rubyxls::Sheet.new
     end
 
     def add_sheets!

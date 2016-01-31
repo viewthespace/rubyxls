@@ -30,7 +30,7 @@ module Rubyxls
 
     def content_type
       if file_extension == :xlsx
-        'application/vnd.openxlsformats-officedocument.spreadsheetml.sheet'
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
       elsif file_extension == :zip
         'application/zip'
       end
@@ -39,7 +39,7 @@ module Rubyxls
     private
 
     def build_workbooks!
-      @workbooks << Reporting::Excel2::Workbooks::DefaultWorkbook.new
+      @workbooks << Rubyxls::Workbook.new
     end
 
   end

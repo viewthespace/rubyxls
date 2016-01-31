@@ -12,7 +12,7 @@ describe Rubyxls::Sheet do
                               page_setup: { fit_to_width: 1, orientation: :landscape },
                               print_options: { grid_lines: false },
                               page_margins: { top: 0.3, left: 0.3, bottom: 0.3, right: 0.3, header: 0, footer: 0 },
-                              name: " Sheet"
+                              name: "Default Sheet"
                             })
     end
 
