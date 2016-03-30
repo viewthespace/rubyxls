@@ -4,7 +4,7 @@ require 'rubyxls'
 RSpec.configure do |config|
 
   config.after(:all) do
-    FileUtils.rm_rf("#{tmp_dir_path}/.")
+    FileUtils.rm_rf(tmp_dir_path)
   end
 
 end
