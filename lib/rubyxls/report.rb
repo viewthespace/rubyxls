@@ -2,9 +2,11 @@ module Rubyxls
   class Report
 
     attr_reader :workbooks
+    attr_reader :file_name
 
     def initialize
       @workbooks = []
+      @file_name = 'rubyxls'
       build_workbooks!
     end
 

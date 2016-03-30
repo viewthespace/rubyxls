@@ -23,6 +23,15 @@ describe Rubyxls::Report do
 
   end
 
+  describe '#file_name' do
+
+    subject { default_report.file_name }
+
+    it 'returns the file name' do
+      expect(subject).to eq('rubyxls')
+    end
+  end
+
   describe '#file_extension' do
 
     subject { default_report.file_extension }
