@@ -55,7 +55,7 @@ module Rubyxls
     end
 
     def define_style(style:, attributes: {})
-      @styles[style] = attributes
+      @styles[style] = attributes if @styles[style].nil?
     end
 
   end
