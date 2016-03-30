@@ -4,7 +4,6 @@ describe Rubyxls::Sheet do
   let(:default_sheet) { Rubyxls::Sheet.new }
 
   describe '#build_options' do
-
     subject { default_sheet.build_options }
 
     it 'builds the correct options' do
@@ -16,6 +15,33 @@ describe Rubyxls::Sheet do
                             })
     end
 
+    context 'dirty sheet name' do
+      let(:dirty_sheet) { Rubyxls::Sheet.new(sheet_name: "T:[is] /s? D**t\\:") }
+
+      subject { dirty_sheet.build_options }
+
+      it 'sets clean sheet name' do
+        expect(subject[:name]).to eq("T--is- -s- D--t--")
+      end
+    end
+
+    context 'long sheet name' do
+      let(:long_sheet) { Rubyxls::Sheet.new(sheet_name: "This sheet name is way too longgggggggggggg") }
+
+      subject { long_sheet.build_options }
+
+      it 'cuts the sheet name off at 31 chars' do
+        expect(subject[:name].size).to eq(31)
+      end
+    end
+
+    context 'taken sheet' do
+      subject { default_sheet.build_options("Default Sheet") }
+
+      it 'sets an available sheet name' do
+        expect(subject[:name]).to eq("Default Sheet(1)")
+      end
+    end
   end
 
   describe '#build_rows' do
