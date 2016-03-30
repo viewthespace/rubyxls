@@ -8,9 +8,9 @@ describe Rubyxls::Sheet do
 
     it 'builds the correct options' do
       expect(subject).to eq({
-                              page_setup: { fit_to_width: 1, orientation: :landscape },
+                              page_setup: { fit_to_width: 1, orientation: :landscape, paper_size: 1 },
                               print_options: { grid_lines: false },
-                              page_margins: { top: 0.3, left: 0.3, bottom: 0.3, right: 0.3, header: 0, footer: 0 },
+                              page_margins: { top: 0.3, left: 0.3, bottom: 0.3, right: 0.3, header: 0.0, footer: 0.0 },
                               name: "Default Sheet"
                             })
     end
