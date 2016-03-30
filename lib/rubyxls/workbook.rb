@@ -34,7 +34,7 @@ module Rubyxls
     def add_sheets!
       @sheets.each do |sheet|
         @data_validations = {}
-        add_sheet(sheet.build_options)
+        add_sheet(sheet.build_options(*workbook_sheet_names))
         add_rows(sheet.build_rows)
         add_data_validations
         add_charts(sheet.build_charts)
@@ -119,6 +119,10 @@ module Rubyxls
         end
         @sheet.add_row(row_values, { widths: row_widths })
       end
+    end
+
+    def workbook_sheet_names
+      @package.workbook.worksheets.map(&:name)
     end
 
   end
