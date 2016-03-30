@@ -53,6 +53,6 @@ module Rubyxls
     def calculate_data_rows_remaining
       @data_rows_count - @data_rows.size
     end
-    
+
   end
 end
