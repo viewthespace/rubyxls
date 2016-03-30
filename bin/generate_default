@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "rubyxls"
+
+default_report = Rubyxls.generate_default_report
+Rubyxls.write_report_to_current_dir(default_report)
+Rubyxls.open(default_report)
