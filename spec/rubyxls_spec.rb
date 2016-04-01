@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Rubyxls do
 
   it 'has correct version number' do
-    expect(Rubyxls::VERSION).to eq("1.0.0")
+    expect(Rubyxls::VERSION).to eq("1.0.1")
   end
 
   describe '#generate_default_report' do
