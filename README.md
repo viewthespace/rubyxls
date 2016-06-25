@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/viewthespace/rubyxls.svg?style=svg)](https://circleci.com/gh/viewthespace/rubyxls)
+[![CircleCI](https://circleci.com/gh/viewthespace/rubyxls.svg?style=svg)](https://circleci.com/gh/viewthespace/rubyxls) [![Code Climate](https://codeclimate.com/repos/576ddc37553f02006c008f07/badges/718e1d902d9467fa7145/gpa.svg)](https://codeclimate.com/repos/576ddc37553f02006c008f07/feed)
 
 # Rubyxls
 
