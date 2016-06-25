@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/viewthespace/rubyxls.svg?style=svg)](https://circleci.com/gh/viewthespace/rubyxls)
+
 # Rubyxls
 
 Generate XLS files using ruby. Rubyxls provides a simple DSL :o express anything from simple ruby strings to complex Active Record models.
