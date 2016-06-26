@@ -148,6 +148,21 @@ end
   ```
   A list of default styles is provided below!
 
+
+#### Generating a report file
+
+  Once a `Report` object and all of its associated components are initialized, generating an output file is straightforward.
+
+  `Rubyxls::Report#download!` returns an IO stream that can be written to a file.
+
+  If a `Report` has more than one workbook, the generated output file will be a `zip` file (containing multiple spreadsheets) instead of an `xslx` (Excel) file. The `#file_extension` method will return the expected file extension for the file.
+
+````ruby
+File.open("myfile.#{my_report.file_extension}", 'w') do |f|
+  f << report.download!.read
+end
+````
+
 ### Styling
 #### Default Styles
 - :bold
