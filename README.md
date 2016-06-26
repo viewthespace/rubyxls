@@ -2,7 +2,7 @@
 
 # Rubyxls
 
-Generate XLS files using ruby. Rubyxls provides a simple DSL :o express anything from simple ruby strings to complex Active Record models.
+Generate XLS files using ruby. Rubyxls provides a simple DSL to express anything from simple ruby strings to complex Active Record models.
 Support for multi-sheet workbooks, chart generation, and formula based cells included.
 
 **This would not have been possible without the hard work of the Axlsx team. Thanks for creating the foundation
