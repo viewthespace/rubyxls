@@ -162,10 +162,10 @@ end
 - :bottom_align
 - :middle_align
 - :border_right
-- :boder_left
-- :boder_top
-- :boder_bottom
-- :boder_all
+- :border_left
+- :border_top
+- :border_bottom
+- :border_all
 - :number
 - :decimal
 - :date
