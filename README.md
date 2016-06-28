@@ -2,7 +2,7 @@
 
 # Rubyxls
 
-Generate XLS files using ruby. Rubyxls provides a simple DSL :o express anything from simple ruby strings to complex Active Record models.
+Generate XLS files using ruby. Rubyxls provides a simple DSL to express anything from simple ruby strings to complex Active Record models.
 Support for multi-sheet workbooks, chart generation, and formula based cells included.
 
 **This would not have been possible without the hard work of the Axlsx team. Thanks for creating the foundation
@@ -60,8 +60,8 @@ class YourVeryOwnReport < Rubyxls::Report
   end
 end
 ```
-- **Inherit from Rubyxls::Report** - this will give you all the functionality a report needs to build itself.
-- **Call super() in #initialize** - this will create an instance variable `@workbooks` to hold all of the beautfiul workbooks you are about to create!
+- **Extend `Rubyxls::Report`** - this will give you all the functionality a report needs to build itself.
+- **Call `super()` in `#initialize`** - this will create an instance variable `@workbooks` to hold all of the beautfiul workbooks you are about to create!
 - **#build_workbooks!** - append any workbooks that you create into `@workbooks` so that your report "has_many" workbooks just like the real excel!
 
 #### Workbook
@@ -81,8 +81,8 @@ class YourVeryOwnWorkbook < Rubyxls::Workbook
 
 end
 ```
-- **Inherit from Rubyxls::Workbook** - get all of that groovy (not the programming language) functionality that Rubyxls gives your Workbook.
-- **Call super() in #initialize passing in a "name" parameter** - this will create an instance variable `@sheets` to hold all of your sheets and will name the workbook you are creating.
+- **Extend `Rubyxls::Workbook`** - get all of that groovy (not the programming language) functionality that Rubyxls gives your Workbook.
+- **Call `super()` in `#initialize` passing in a "`name`" parameter** - this will create an instance variable `@sheets` to hold all of your sheets and will name the workbook you are creating.
 - **#build_sheets!** - append any sheets that you create into `@sheets` so that your workbook "has_many" sheets!
 
 #### Sheet
@@ -103,8 +103,8 @@ class YourVeryOwnSheet < Rubyxls::Sheet
 
 end
 ```
-- **Inherit from Rubyxls::Sheet** - gotta get that sheet functionality
-- **Call super() in #initialize passing in a "name" parameter** - this will give your sheet a name
+- **Extend `Rubyxls::Sheet`** - gotta get that sheet functionality
+- **Call `super()` in `#initialize` passing in a "`name`" parameter** - this will give your sheet a name
 - **#build_cells!** - this is the dumping ground for all of your data. The CellBuilder, which takes in a view model as a parameter will break apart your view models / tables into invidual
 cells and organize them properly. Don't forget to specify where on the sheet you would like your view models to be drawn using `start_row` and `start_column`!
 Behind the scenes, we are taking all of your modularized view models, breaking them apart into individual cells, throwing all of those cells into one LARGE pot and re-arranging them in the
@@ -116,7 +116,7 @@ class YourVeryOwnViewModel < Rubyxls::ViewModel
 
   def initialize(whatever_data_you_need)
     @data = whatever_data_you_need
-    super()                             # Call #super passing in no parameters
+    super() # Call #super passing in no parameters
   end
 
   private
@@ -129,9 +129,9 @@ class YourVeryOwnViewModel < Rubyxls::ViewModel
 
 end
 ```
-- **Inherit from Rubyxls::ViewModel**
-- **Call super() in #initialize passing**
-- **#build_data_rows!** - this is where you decide what data goes into the workbook and how it looks. Let's break it down by describing the ruby version of each excel component that makes up a row.
+- **Extend `Rubyxls::ViewModel`**
+- **Call `super()` in `#initialize`**
+- **`#build_data_rows!`** - this is where you decide what data goes into the workbook and how it looks. Let's break it down by describing the ruby version of each excel component that makes up a row.
   ```
   | Ruby  | Excel | Desciption                                             |
   | -----  -------  ------------------------------------------------------ |
@@ -148,6 +148,21 @@ end
   ```
   A list of default styles is provided below!
 
+
+#### Generating a report file
+
+  Once a `Report` object and all of its associated components are initialized, generating an output file is straightforward.
+
+  `Rubyxls::Report#download!` returns an IO stream that can be written to a file.
+
+  If a `Report` has more than one workbook, the generated output file will be a `zip` file (containing multiple spreadsheets) instead of an `xslx` (Excel) file. The `#file_extension` method will return the expected file extension for the file.
+
+````ruby
+File.open("myfile.#{my_report.file_extension}", 'w') do |f|
+  f << report.download!.read
+end
+````
+
 ### Styling
 #### Default Styles
 - :bold
@@ -162,10 +177,10 @@ end
 - :bottom_align
 - :middle_align
 - :border_right
-- :boder_left
-- :boder_top
-- :boder_bottom
-- :boder_all
+- :border_left
+- :border_top
+- :border_bottom
+- :border_all
 - :number
 - :decimal
 - :date
@@ -196,8 +211,8 @@ class YourVeryOwnCustomStyleManager < Rubyxls::StyleManager
 
 end
 ```
-- **Inherit from Rubyxls::StyleManager**
-- **Call super in #initialize passing** - in order to get all of those default styles that Rubyxls provides.
+- **Extend `Rubyxls::StyleManager`**
+- **Call `super` in `#initialize`** - in order to get all of those default styles that Rubyxls provides.
 - **#initialize_base_styles!** - define your own styles according the the excel specification. Each style only needs a set of attributes.
 
 Now you can apply your newly defined styles inside of any sheet.
