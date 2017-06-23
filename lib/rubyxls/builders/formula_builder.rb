@@ -49,23 +49,15 @@ module Rubyxls
       end
 
       def shift_value_right!
+        return nil if @value.nil?
         tmp_value = @value.dup
-        if tmp_value.nil?
-         @value = nil
-       else
-         @value = tmp_value.gsub!(/(?<![\$A-Z])[A-Z]+(?=[\$\d])/) { |column| column.next }
-       end
-        @value
+        @value = tmp_value.gsub!(/(?<![\$A-Z])[A-Z]+(?=[\$\d])/) { |column| column.next }
       end
 
       def shift_value_down!
+        return nil if @value.nil?
         tmp_value = @value.dup
-        if tmp_value.nil?
-          @value = nil
-        else
-          @value = tmp_value.gsub!(/(?<=[A-Z])[0-9]+/) { |row| row.to_i + @row_index }
-        end
-        @value
+        @value = tmp_value.gsub!(/(?<=[A-Z])[0-9]+/) { |row| row.to_i + @row_index }
       end
 
     end
