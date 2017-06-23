@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Rubyxls
   module Builders
     class FormulaBuilder
@@ -48,11 +49,15 @@ module Rubyxls
       end
 
       def shift_value_right!
-        @value.nil? ? nil : @value.gsub!(/(?<![\$A-Z])[A-Z]+(?=[\$\d])/) { |column| column.next }
+        tmp_value = @value.dup
+        tmp_value.nil? ? nil : tmp_value.gsub!(/(?<![\$A-Z])[A-Z]+(?=[\$\d])/) { |column| column.next }
+        @value = tmp_value
       end
 
       def shift_value_down!
-        @value.nil? ? nil : @value.gsub!(/(?<=[A-Z])[0-9]+/) { |row| row.to_i + @row_index }
+        tmp_value = @value.dup
+        tmp_value.nil? ? nil : tmp_value.gsub!(/(?<=[A-Z])[0-9]+/) { |row| row.to_i + @row_index }
+        @value = tmp_value
       end
 
     end
