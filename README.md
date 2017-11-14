@@ -82,7 +82,7 @@ class YourVeryOwnWorkbook < Rubyxls::Workbook
 end
 ```
 - **Extend `Rubyxls::Workbook`** - get all of that groovy (not the programming language) functionality that Rubyxls gives your Workbook.
-- **Call `super()` in `#initialize` passing in a "`name`" parameter** - this will create an instance variable `@sheets` to hold all of your sheets and will name the workbook you are creating.
+- **Call `super()` in `#initialize` passing in a "`sheet_name`" parameter** - this will create an instance variable `@sheets` to hold all of your sheets and will name the workbook you are creating.
 - **#build_sheets!** - append any sheets that you create into `@sheets` so that your workbook "has_many" sheets!
 
 #### Sheet
