@@ -54,17 +54,19 @@ module Rubyxls
       rows.each do |row|
         values = []
         widths = []
+        types = []
         styles = []
         height = nil
         row.each do |cell|
           values << cell[:value]
           widths << cell[:width]
+          types << cell[:type]
           styles << retrieve_style_code(cell[:style])
           height = cell[:height] if cell[:height]
           merge_cell(cell) if cell[:merge]
           @data_validations["#{cell[:column]}#{cell[:row]}"] = cell[:data_validation] if cell[:data_validation]
         end
-        @sheet.add_row(values, { style: styles, widths: widths, height: height })
+        @sheet.add_row(values, { types: types, style: styles, widths: widths, height: height })
       end
     end
 
