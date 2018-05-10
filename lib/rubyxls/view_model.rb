@@ -37,7 +37,9 @@ module Rubyxls
     end
 
     def build_additional_rows!
-      until @data_rows.size == @data_rows_count do
+      number_of_additional_rows = @data_rows_count - @data_rows.size
+
+      number_of_additional_rows.times do
         build_additional_row!
       end
     end
