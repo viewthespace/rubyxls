@@ -1,8 +1,0 @@
-machine:
-
-  timezone:
-    America/New_York
-
-  ruby:
-    version:
-      2.3.0
