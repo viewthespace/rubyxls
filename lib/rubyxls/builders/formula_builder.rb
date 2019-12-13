@@ -6,6 +6,7 @@ module Rubyxls
 
       def initialize(**opts)
         @value = opts.fetch(:value, nil)
+        @value = +@value if @value.respond_to?(:+)
         @style = opts.fetch(:style, [:default])
         @width = opts.fetch(:width, nil)
         @height = opts.fetch(:height, nil)
