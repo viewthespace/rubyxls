@@ -3,7 +3,7 @@ jobs:
   build:
     parallelism: 1
     docker:
-      - image: circleci/ruby:2.3-node-browsers-legacy
+      - image: circleci/ruby:2.6.5
         environment:
           RAILS_ENV: test
           RACK_ENV: test
