@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", ">= 12.3.3"
   spec.add_development_dependency "rspec", "~> 3.0"
 
-  spec.add_runtime_dependency "axlsx", ">= 2.0"
+  spec.add_runtime_dependency "caxlsx", ">= 2.0"
 end
