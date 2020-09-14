@@ -73,8 +73,10 @@ module Rubyxls
     end
 
     def unique_sheet_name(sheet_name, taken_names, index=1)
-      return sheet_name[0, 31] unless taken_names.include?(sheet_name[0, 31])
-      sheet_name = "#{sheet_name[0, 29 - index.to_s.length]}(#{index})"
+      sliced_name = sheet_name.byteslice(0, 31)
+      return sliced_name unless taken_names.include?(sliced_name)
+
+      sheet_name = "#{sheet_name.byteslice(0, 28)}(#{index})"
       unique_sheet_name(sheet_name, taken_names, index + 1)
     end
 
