@@ -25,13 +25,36 @@ describe Rubyxls::Sheet do
       end
     end
 
-    context 'long sheet name' do
-      let(:long_sheet) { Rubyxls::Sheet.new(sheet_name: "This sheet name is way too longgggggggggggg") }
+    describe 'sheet name' do
+      context 'when name is longer than 31 bytesize' do
+        let(:long_sheet) { Rubyxls::Sheet.new(sheet_name: "This sheet name is way too longgggggggggggg") }
 
-      subject { long_sheet.build_options }
+        subject { long_sheet.build_options }
 
-      it 'cuts the sheet name off at 31 chars' do
-        expect(subject[:name].size).to eq(31)
+        it 'cuts the sheet name off at 31 bytesize chars' do
+          expect(subject[:name].bytesize).to eq(31)
+        end
+      end
+
+      context 'when sheet name has chars greater than 1 byte' do
+        let(:long_sheet) { Rubyxls::Sheet.new(sheet_name: "1234567890 – 1234567890 1234567890 123") }
+
+        subject { long_sheet.build_options }
+
+        it 'cuts the sheet name off at 31 bytesize chars' do
+          expect(subject[:name].bytesize).to eq(31)
+        end
+      end
+
+      context 'when sheet name has chars greater than 1 byte and name is taken' do
+        let(:long_sheet) { Rubyxls::Sheet.new(sheet_name: '1234567890 – 1234567890 1234567890 1') }
+
+        subject { long_sheet.build_options('1234567890 – 1234567890 12345') }
+
+        it 'cuts the sheet name off at 31 bytesize chars' do
+          expect(subject[:name].bytesize).to eq(31)
+          expect(subject[:name]).to eq('1234567890 – 1234567890 12(1)')
+        end
       end
     end
 
