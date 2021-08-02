@@ -3,7 +3,7 @@ jobs:
   build:
     parallelism: 1
     docker:
-      - image: circleci/ruby:2.6.5
+      - image: circleci/ruby:3.0.2
         environment:
           RAILS_ENV: test
           RACK_ENV: test
