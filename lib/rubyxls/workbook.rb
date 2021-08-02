@@ -5,10 +5,10 @@ module Rubyxls
 
     attr_reader :sheets
 
-    def initialize(**opts)
+    def initialize(name: 'default_workbook')
       @package = Axlsx::Package.new
       @package.use_shared_strings = true
-      @name = opts.fetch(:name, "default_workbook")
+      @name = name
       @style_codes = {}
       @sheets = []
 
@@ -38,7 +38,7 @@ module Rubyxls
         add_rows(sheet.build_rows)
         add_data_validations
         add_charts(sheet.build_charts)
-        add_width_normalization(sheet.build_width_normalization)
+        add_width_normalization(**sheet.build_width_normalization)
       end
     end
 
